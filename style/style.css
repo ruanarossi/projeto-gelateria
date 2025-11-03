@@ -98,7 +98,12 @@ img {
 
 /* Classe adicionada via JS na rolagem */
 .main-nav.scrolled {
-  background-color: rgba(140, 28, 49, 0.85); /* Cor vinho com transparência */
+  background-color: rgba(
+    87,
+    40,
+    22,
+    0.9
+  ); /* Cor --cor-principal-escura com transparência */
   backdrop-filter: blur(10px);
 }
 
@@ -111,7 +116,8 @@ img {
 }
 
 .nav-logo img {
-  height: 110px; /* Reduz o tamanho para melhor alinhamento */
+  height: 110px;
+  transition: height 0.4s ease; /* Adiciona transição para a altura */
 }
 
 .nav-logo {
@@ -119,12 +125,24 @@ img {
   /* Ajustes de posicionamento absoluto removidos */
   margin-top: 35px; /* Desce a logo um pouco */
   margin-left: -30px;
+  transition: margin-top 0.4s ease, margin-left 0.4s ease; /* Adiciona transição */
+}
+
+/* Ajusta a logo quando a página é rolada */
+.main-nav.scrolled .nav-logo {
+  margin-top: 0;
+  margin-left: -15px; /* Ajusta a margem para centralizar melhor */
 }
 
 .nav-menu ul {
   display: flex;
   gap: 36px; /* Reduz o espaçamento para acomodar o novo botão */
   align-items: center; /* Alinha verticalmente os links e o botão */
+}
+
+/* Reduz o tamanho da imagem da logo quando a página é rolada */
+.main-nav.scrolled .nav-logo img {
+  height: 65px; /* Altura para caber dentro da navbar de 70px */
 }
 
 .nav-menu a {

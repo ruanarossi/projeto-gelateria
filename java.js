@@ -87,6 +87,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // --- Lógica para mudar o fundo da navbar ao rolar ---
+  const mainNav = document.querySelector(".main-nav");
+  if (mainNav) {
+    // Pega a altura da navbar definida no CSS para o scroll-margin-top
+    const navHeight =
+      getComputedStyle(document.documentElement)
+        .getPropertyValue("--altura-nav")
+        .trim() || "70px";
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > parseInt(navHeight, 10)) {
+        mainNav.classList.add("scrolled");
+      } else {
+        mainNav.classList.remove("scrolled");
+      }
+    });
+  }
+
   // --- Lógica de Validação de Formulários ---
   function validateForm(formId) {
     const form = document.getElementById(formId);
